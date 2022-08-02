@@ -1,13 +1,28 @@
 // to run this, in terminal write: node index
 const express = require("express"); // importing express
 const path = require("path");
+// adding handlebars
+const exphbs = require("express-handlebars");
 const logger = require("./middleware/logger");
+const members = require("./Members");
 
 // initializing the app
 const app = express();
 
 // Init middleware
 // app.use(logger);
+
+// Handlebars middleware
+app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Homepage route
+app.get("/", (req, res) =>
+  res.render("index", {
+    title: "Member app",
+    members,
+  })
+);
 
 // creating routes
 // app.get("/", (req, res) => {
