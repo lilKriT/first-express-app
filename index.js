@@ -15,6 +15,10 @@ const app = express();
 //   res.sendFile(path.join(__dirname, "public", "index.html"));
 // });
 
+// Initializing a body parser middleware - it's important for adding users
+app.use(express.json()); // handles json
+app.use(express.urlencoded({ extended: false })); // handles forms
+
 // Set up a static folder
 app.use(express.static(path.join(__dirname, "public")));
 

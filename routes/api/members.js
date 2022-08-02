@@ -1,4 +1,5 @@
 const express = require("express");
+const uuid = require("uuid");
 const router = express.Router();
 const members = require("../../Members");
 
@@ -21,6 +22,28 @@ router.get("/:id", (req, res) => {
     );
   } else {
     res.status(400).json({ msg: `Member ${req.params.id} not found` });
+  }
+});
+
+router.post("/", (req, res) => {
+  //   res.send(req.body);    // this just sends back the data
+  // were not using a DB, so we will get a new id from uuid
+
+  // creating a new member
+  const newMember = {
+    id: uuid.v4(),
+    name: req.body.name,
+    email: req.body.email,
+    status: "active",
+  };
+
+  // checking the data
+  if (!newMember.name || !newMember.email) {
+    // if you get error "headers already set", use return here or use an else later
+    return res.status(400).json({ msg: "Please include a name and email" });
+  } else {
+    members.push(newMember);
+    return res.json(members);
   }
 });
 
