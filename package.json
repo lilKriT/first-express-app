@@ -1,0 +1,23 @@
+{
+  "name": "first-express-app",
+  "version": "1.0.0",
+  "description": "My first Express app. Following a tutorial from Traversy Media.\r Created by lilKriT.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilKriT/first-express-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilKriT/first-express-app/issues"
+  },
+  "homepage": "https://github.com/lilKriT/first-express-app#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
