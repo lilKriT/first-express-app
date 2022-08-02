@@ -6,10 +6,13 @@ const path = require("path");
 const app = express();
 
 // creating routes
-app.get("/", (req, res) => {
-  //   res.send("<h1>Hello Express!</h1>");
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// app.get("/", (req, res) => {
+//   //   res.send("<h1>Hello Express!</h1>");
+//   res.sendFile(path.join(__dirname, "public", "index.html"));
+// });
+
+// Set up a static folder
+app.use(express.static(path.join(__dirname, "public")));
 
 // port. either env variable, or 5000
 const PORT = process.env.PORT || 5000;
